@@ -26,6 +26,8 @@ import (
 	"context"
 	"time"
 
+	"github.com/gocql/gocql"
+
 	"github.com/uber/cadence/common/config"
 	"github.com/uber/cadence/common/persistence/nosql/nosqlplugin"
 )
@@ -114,5 +116,6 @@ type (
 		SerialConsistency     SerialConsistency
 		Timeout               time.Duration
 		ConnectTimeout        time.Duration
+		Dialer                gocql.Dialer
 	}
 )

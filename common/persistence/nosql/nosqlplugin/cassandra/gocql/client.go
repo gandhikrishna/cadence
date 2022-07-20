@@ -95,6 +95,10 @@ func newCassandraCluster(cfg ClusterConfig) *gocql.ClusterConfig {
 
 	cluster.PoolConfig.HostSelectionPolicy = gocql.TokenAwareHostPolicy(gocql.RoundRobinHostPolicy())
 
+	if cfg.Dialer != nil {
+		cluster.Dialer = cfg.Dialer
+	}
+
 	return cluster
 }
 
